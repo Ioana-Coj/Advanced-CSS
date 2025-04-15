@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animatie</title>
+  <style>
+    body {
+      background-color: #050210;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .fundal-animat {
+      width: 400px;
+      height: 400px;
+      margin: 150px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      animation: schimbare-fundal 10s infinite alternate;
+      position: relative;
+    }
+
+    .fundal-animat::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #fb5dad);
+      filter: blur(60px);
+      z-index: 0;
+      animation: rotire-glow 8s linear infinite;
+    }
+
+    .cerc-dinamic {
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, #050210 70%, blue 100%);
+      border-radius: 50%;
+      animation: apropiere-cerc 2s infinite ease-in-out;
+      filter: brightness(1.2);
+      z-index: 1;
+    }
+
+    @keyframes schimbare-fundal {
+      0% {
+        background-color: #fb5dad;
+      }
+      100% {
+        background-color: #040d4b;
+      }
+    }
+
+    @keyframes rotire-glow {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes apropiere-cerc {
+      0% {
+        transform: scale(1);
+        filter: brightness(1) blur(0px);
+      }
+      100% {
+        transform: scale(6);
+        filter: brightness(2) blur(4px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="fundal-animat">
+    <div class="cerc-dinamic"></div>
+  </div>
+</body>
+</html>
